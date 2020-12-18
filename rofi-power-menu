@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+option=`echo -e "Exit\nPower off\nReboot" | rofi -dmenu | tr -d '\r\n'`
+
+if  [[ $option == "Exit" ]]; then
+    swaymsg exit
+fi
+
+if  [[ $option == "Power off" ]]; then
+    systemctl poweroff
+fi
+
+if  [[ $option == "Reboot" ]]; then
+    systemctl reboot
+fi
+
+

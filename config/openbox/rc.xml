@@ -362,7 +362,22 @@
     <!-- Keybindings for yo -->
     <keybind key="W-m">
       <action name="Execute">
-        <command>jgmenu_run</command>
+        <command>rofi -modi drun -show drun</command>
+      </action>
+    </keybind>
+    <keybind key="W-d">
+      <action name="Execute">
+        <command>rofi -show run</command>
+      </action>
+    </keybind>
+    <keybind key="W-Tab">
+      <action name="Execute">
+        <command>rofi -show window</command>
+      </action>
+    </keybind>
+    <keybind key="W-x">
+      <action name="Execute">
+        <command>rofi-power-menu</command>
       </action>
     </keybind>
   </keyboard>

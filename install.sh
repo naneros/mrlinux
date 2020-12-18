@@ -7,6 +7,16 @@
 # 
 # exec -> firecfg
 
+sudo pacman -S mesa
+sudo pacman -S lib32-mesa
+sudo pacman -S xf86-video-amdgpu
+sudo pacman -S vulkan-radeon
+sudo pacman -S lib32-vulkan-radeon
+
+sudo pacman -S papirus-icon-theme
+sudo pacman -S lxappearance-obconf
+sudo pacman -S xclip
+sudo pacman -S arc-gtk-theme
 sudo pacman -S tint2
 sudo pacman -S nitrogen
 sudo pacman -S obconf
@@ -17,7 +27,6 @@ sudo pacman -S tmux
 sudo pacman -S chromium
 sudo pacman -S nano
 #sudo pacman -S git
-#sudo pacman -S xf86-video-amdgpu
 sudo pacman -S alsa-utils
 sudo pacman -S pulseaudio
 sudo pacman -S pavucontrol
@@ -30,7 +39,8 @@ sudo pacman -S htop
 sudo pacman -S base-devel
 sudo pacman -S gucharmap
 sudo pacman -S firejail
-sudo pacman -S apparmor
+sudo pacman -S thunar
+#sudo pacman -S apparmor
 
 git config --global user.email "naneros21@gmail.com"
 git config --global user.name "naneros"
@@ -40,7 +50,7 @@ cd ~/gitrepos
 git clone https://aur.archlinux.org/pikaur.git
 cd pikaur
 makepkg -fsri
-cd ~/arch
+cd ~/mrlinux
 
 #curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
