@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# add -> GRUB_CMDLINE_LINUX="apparmor=1 security=apparmor" -> to /etc/default/grub
+# exec -> sudo grub-mkconfig -o /boot/grub/grub.cfg
+# exec -> sudo systemctl start apparmor.service
+# exec -> sudo systemctl enable apparmor.service
+# 
+# exec -> firecfg
+
+sudo pacman -S tint2
+sudo pacman -S nitrogen
+sudo pacman -S obconf
+sudo pacman -S jgmenu
+sudo pacman -S rofi
+sudo pacman -S alacritty
+sudo pacman -S tmux
+sudo pacman -S chromium
+sudo pacman -S nano
+#sudo pacman -S git
+#sudo pacman -S xf86-video-amdgpu
+sudo pacman -S alsa-utils
+sudo pacman -S pulseaudio
+sudo pacman -S pavucontrol
+sudo pacman -S rsync
+#sudo pacman -S jdk8-openjdk
+#sudo pacman -S java8-openjfx
+sudo pacman -S mc
+#sudo pacman -S awesome awesome-terminal-fonts
+sudo pacman -S htop
+sudo pacman -S base-devel
+sudo pacman -S gucharmap
+sudo pacman -S firejail
+sudo pacman -S apparmor
+
+git config --global user.email "naneros21@gmail.com"
+git config --global user.name "naneros"
+
+mkdir -p ~/gitrepos/
+cd ~/gitrepos
+git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
+makepkg -fsri
+cd ~/arch
+
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
