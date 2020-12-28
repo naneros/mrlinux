@@ -14,7 +14,7 @@
 
 # If you want to use XFCE config tools...
 #
-#xfce-mcs-manager &
+
 tint2 &
 nitrogen --restore &
-#picom -b &
+picom -b &

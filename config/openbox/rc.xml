@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Onyx-Citrus</name>
+    <name>Mikachu</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -120,7 +120,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>9</number>
+    <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -131,11 +131,6 @@
       <name>2</name>
       <name>3</name>
       <name>4</name>
-      <name>5</name>
-      <name>6</name>
-      <name>7</name>
-      <name>8</name>
-      <name>9</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -254,31 +249,6 @@
     <keybind key="W-F4">
       <action name="GoToDesktop">
         <to>4</to>
-      </action>
-    </keybind>
-    <keybind key="W-F5">
-      <action name="GoToDesktop">
-        <to>5</to>
-      </action>
-    </keybind>
-    <keybind key="W-F6">
-      <action name="GoToDesktop">
-        <to>6</to>
-      </action>
-    </keybind>
-    <keybind key="W-F7">
-      <action name="GoToDesktop">
-        <to>7</to>
-      </action>
-    </keybind>
-    <keybind key="W-F8">
-      <action name="GoToDesktop">
-        <to>8</to>
-      </action>
-    </keybind>
-    <keybind key="W-F9">
-      <action name="GoToDesktop">
-        <to>9</to>
       </action>
     </keybind>
     <keybind key="W-d">
@@ -686,18 +656,18 @@
           <menu>client-list-combined-menu</menu>
         </action>
       </mousebind>
+      <!--
       <mousebind button="Right" action="Press">
         <action name="Execute">
           <command>jgmenu_run</command>
         </action>
       </mousebind>
-      <!--
+      -->
       <mousebind button="Right" action="Press">
         <action name="ShowMenu">
           <menu>root-menu</menu>
         </action>
       </mousebind>
-      -->
     </context>
     <context name="MoveResize">
       <mousebind button="Up" action="Click">

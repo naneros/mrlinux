@@ -1,57 +1,66 @@
-#!/bin/bash
+#! /bin/bash
 
-# add -> GRUB_CMDLINE_LINUX="apparmor=1 security=apparmor" -> to /etc/default/grub
-# exec -> sudo grub-mkconfig -o /boot/grub/grub.cfg
-# exec -> sudo systemctl start apparmor.service
-# exec -> sudo systemctl enable apparmor.service
-# 
-# exec -> firecfg
+# .zshrc -> Cambiar zsh theme por simple y descomentar path bin
+# .profile -> crear y añadir linea path de .zshrc
 
-sudo pacman -S mesa
-sudo pacman -S lib32-mesa
-sudo pacman -S xf86-video-amdgpu
-sudo pacman -S vulkan-radeon
-sudo pacman -S lib32-vulkan-radeon
+# small template for my bash shell scripts.
 
-sudo pacman -S papirus-icon-theme
-sudo pacman -S lxappearance-obconf
-sudo pacman -S xclip
-sudo pacman -S arc-gtk-theme
-sudo pacman -S tint2
-sudo pacman -S nitrogen
-sudo pacman -S obconf
-sudo pacman -S jgmenu
-sudo pacman -S rofi
-sudo pacman -S alacritty
-sudo pacman -S tmux
-sudo pacman -S chromium
-sudo pacman -S nano
-#sudo pacman -S git
-sudo pacman -S alsa-utils
-sudo pacman -S pulseaudio
-sudo pacman -S pavucontrol
-sudo pacman -S rsync
-#sudo pacman -S jdk8-openjdk
-#sudo pacman -S java8-openjfx
-sudo pacman -S mc
-#sudo pacman -S awesome awesome-terminal-fonts
-sudo pacman -S htop
-sudo pacman -S base-devel
-sudo pacman -S gucharmap
-sudo pacman -S firejail
-sudo pacman -S thunar
-#sudo pacman -S apparmor
+set -o errexit  # the script ends if a command fails
+set -o pipefail # the script ends if a command fails in a pipe
+set -o nounset  # the script ends if it uses an undeclared variable
+# set -o xtrace # if you want to debug
 
-git config --global user.email "naneros21@gmail.com"
-git config --global user.name "naneros"
+base() {
+	sudo pacman -S xorg xorg-xinit
+	sudo pacman -S lightdm lightdm-gtk-greeter
+	sudo pacman -S openbox lxappearance-obconf
+	sudo pacman -S tint2 rofi nitrogen picom
+	sudo pacman -S awesome awesome-terminal-fonts ttf-dejavu noto-fonts
+	sudo pacman -S papiurus-icon-theme arc-gtk-theme
 
-mkdir -p ~/gitrepos/
-cd ~/gitrepos
-git clone https://aur.archlinux.org/pikaur.git
-cd pikaur
-makepkg -fsri
-cd ~/mrlinux
+	sudo pacman -S alsa-utils pulseaudio pavucontrol
 
-#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	sudo pacman -S base-devel
+	sudo pacman -S terminator mc htop rsync xclip
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sudo pacman -S thunar thunar-archive-plugin thunar-volman xarchiver
+	
+	sudo pacman -S chromium
+
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+	mkdir -p ~/gitrepos/
+	cd ~/gitrepos
+	git clone https://aur.archlinux.org/pikaur.git
+	cd pikaur
+	makepkg -fsri
+	cd ~/mrlinux
+
+	mkdir -p ~/bin/
+	cd ~/bin/
+	curl https://getmic.ro | bash
+	cd ~/mrlinux
+	
+	sudo systemctl enable lightdm.service
+	sudo localectl set-x11-keymap es
+
+	git config --global user.email "naneros21@gmail.com"
+	git config --global user.name "naneros"	
+
+	pikaur -S menumaker
+	mmaker -vf OpenBox3
+
+}
+
+vbox-guest() {
+	sudo pacman -S virtualbox-guest-utils 
+	sudo systemctl enable vboxservice.service
+}
+
+# Main function
+main() {
+  base
+  vbox-guest
+}
+
+main "$@"
