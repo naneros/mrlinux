@@ -330,6 +330,16 @@
       </action>
     </keybind>
     <!-- Keybindings for yo -->
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>terminator</command>
+      </action>
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute">
+        <command>chromium</command>
+      </action>
+    </keybind>
     <keybind key="W-m">
       <action name="Execute">
         <command>rofi -modi drun -show drun</command>

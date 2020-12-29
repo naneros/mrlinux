@@ -16,7 +16,7 @@ base() {
 	sudo pacman -S openbox lxappearance-obconf
 	sudo pacman -S tint2 rofi nitrogen picom
 	sudo pacman -S awesome awesome-terminal-fonts ttf-dejavu noto-fonts
-	sudo pacman -S papiurus-icon-theme arc-gtk-theme
+	sudo pacman -S papirus-icon-theme arc-gtk-theme
 
 	sudo pacman -S alsa-utils pulseaudio pavucontrol
 
@@ -26,8 +26,6 @@ base() {
 	sudo pacman -S thunar thunar-archive-plugin thunar-volman xarchiver
 	
 	sudo pacman -S chromium
-
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 	mkdir -p ~/gitrepos/
 	cd ~/gitrepos
@@ -52,15 +50,26 @@ base() {
 
 }
 
+protonvpn() {
+	sudo pacman -S openvpn dialog python-pip python-setuptools
+	sudo pip3 install protonvpn-cli
+}
+
 vbox-guest() {
 	sudo pacman -S virtualbox-guest-utils 
 	sudo systemctl enable vboxservice.service
 }
 
+end() {
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"	
+}
+
 # Main function
 main() {
   base
+  protonvpn
   vbox-guest
+  end
 }
 
 main "$@"

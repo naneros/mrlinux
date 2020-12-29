@@ -18,3 +18,4 @@
 tint2 &
 nitrogen --restore &
 picom -b &
+#conky &
