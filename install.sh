@@ -5,15 +5,15 @@
 
 # small template for my bash shell scripts.
 
-set -o errexit  # the script ends if a command fails
-set -o pipefail # the script ends if a command fails in a pipe
-set -o nounset  # the script ends if it uses an undeclared variable
+#set -o errexit  # the script ends if a command fails
+#set -o pipefail # the script ends if a command fails in a pipe
+#set -o nounset  # the script ends if it uses an undeclared variable
 # set -o xtrace # if you want to debug
 
 base() {
 	sudo pacman -S xorg xorg-xinit
 	sudo pacman -S lightdm lightdm-gtk-greeter
-	sudo pacman -S openbox lxappearance-obconf
+	sudo pacman -S openbox lxappearance-obconf lxsession
 	sudo pacman -S tint2 rofi nitrogen picom
 	sudo pacman -S awesome awesome-terminal-fonts ttf-dejavu noto-fonts
 	sudo pacman -S papirus-icon-theme arc-gtk-theme
