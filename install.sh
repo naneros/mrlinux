@@ -1,7 +1,14 @@
 #! /bin/bash
 
+##################################################################################################################
 # .zshrc -> Cambiar zsh theme por simple y descomentar path bin
 # .profile -> crear y añadir linea path de .zshrc
+
+# apparmor
+# GRUB_CMDLINE_LINUX_DEFAULT="apparmor=1 lsm=lockdown,yama,apparmor" -> /etc/default/grub
+# sudo systemctl enable apparmor
+# sudo aa-enforce firejail-default
+##################################################################################################################
 
 # small template for my bash shell scripts.
 
@@ -22,6 +29,10 @@ base() {
 
 	sudo pacman -S base-devel
 	sudo pacman -S terminator mc htop rsync xclip
+
+	sudo pacman -S firejail apparmor ufw
+	sudo systemctl enable ufw
+	sudo ufw enable
 
 	sudo pacman -S thunar thunar-archive-plugin thunar-volman xarchiver
 	
