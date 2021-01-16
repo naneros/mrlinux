@@ -1,7 +1,7 @@
 #! /bin/bash
 
 ##################################################################################################################
-# .zshrc -> Cambiar zsh theme por simple y descomentar path bin
+# .zshrc -> Cambiar zsh theme por mros y descomentar path bin
 # .profile -> crear y añadir linea path de .zshrc
 
 # apparmor
@@ -20,6 +20,7 @@
 base() {
 	sudo pacman -S xorg xorg-xinit
 	sudo pacman -S lightdm lightdm-gtk-greeter
+	sudo pacman -S pacman-contrib
 	sudo pacman -S openbox lxappearance-obconf lxsession
 	sudo pacman -S tint2 rofi nitrogen picom
 	sudo pacman -S awesome awesome-terminal-fonts ttf-dejavu noto-fonts
@@ -28,13 +29,15 @@ base() {
 	sudo pacman -S alsa-utils pulseaudio pavucontrol
 
 	sudo pacman -S base-devel
-	sudo pacman -S terminator mc htop rsync xclip
+	sudo pacman -S terminator mc htop rsync xclip ranger
 
 	sudo pacman -S firejail apparmor ufw
 	sudo systemctl enable ufw
 	sudo ufw enable
 
-	sudo pacman -S thunar thunar-archive-plugin thunar-volman xarchiver
+	sudo pacman -S thunar thunar-archive-plugin thunar-volman xarchiver 
+
+	sudo pacman -S gedit gedit-plugins gvfs
 	
 	sudo pacman -S chromium
 

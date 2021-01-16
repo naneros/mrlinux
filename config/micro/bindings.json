@@ -1,0 +1,8 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "CtrlUnderscore": "lua:comment.comment",
+    "F10": "lua:crypto.decrypt",
+    "F11": "lua:crypto.encrypt",
+    "F12": "lua:crypto.decrypt",
+    "F9": "lua:crypto.encrypt"
+}
