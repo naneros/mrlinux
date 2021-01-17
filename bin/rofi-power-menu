@@ -3,7 +3,7 @@
 option=`echo -e "Exit\nPower off\nReboot" | rofi -dmenu | tr -d '\r\n'`
 
 if  [[ $option == "Exit" ]]; then
-    swaymsg exit
+    openbox --exit
 fi
 
 if  [[ $option == "Power off" ]]; then

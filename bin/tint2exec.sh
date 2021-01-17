@@ -19,4 +19,4 @@ cpu_str=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
 #RAM
 ram_str=$(free | awk '/Mem/ {printf "%d MiB\n", $3 / 1024.0, $2 / 1024.0 }')
 
-echo "VPN   $vpn_str       $cpu_str       $ram_str"
+echo "base    VPN   $vpn_str       $cpu_str       $ram_str"

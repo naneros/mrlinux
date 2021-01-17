@@ -15,8 +15,8 @@
 # If you want to use XFCE config tools...
 #
 
-lxsession &
 tint2 &
 nitrogen --restore &
 picom -b &
+lxpolkit &
 #conky &

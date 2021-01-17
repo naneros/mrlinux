@@ -6,6 +6,7 @@
 
 # apparmor
 # GRUB_CMDLINE_LINUX_DEFAULT="apparmor=1 lsm=lockdown,yama,apparmor" -> /etc/default/grub
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 # sudo systemctl enable apparmor
 # sudo aa-enforce firejail-default
 ##################################################################################################################
@@ -21,7 +22,7 @@ base() {
 	sudo pacman -S xorg xorg-xinit
 	sudo pacman -S lightdm lightdm-gtk-greeter
 	sudo pacman -S pacman-contrib
-	sudo pacman -S openbox lxappearance-obconf lxsession
+	sudo pacman -S openbox lxappearance-obconf obconf lxsession 
 	sudo pacman -S tint2 rofi nitrogen picom
 	sudo pacman -S awesome awesome-terminal-fonts ttf-dejavu noto-fonts
 	sudo pacman -S papirus-icon-theme arc-gtk-theme
